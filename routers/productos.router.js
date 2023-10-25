@@ -6,7 +6,7 @@ import controller from '../controllers/productos.controller.js'
 /* CRUD COMPLETO DE PRODUCTOS            */
 /* ------------------------------------- */
 
-// ! GET ALL / ONE (READ) - request de todos los productos
+// ! GET ONE / ALL  (READ) - request de todos los productos
 // http:/localhost:8080/api/productos | GET ALL
 // http:/localhost:8080/api/productos/id | GET ONE
 routerProductos.get('/:id?', controller.obtenerProductos) // :id? -> ? params no obligatorio
