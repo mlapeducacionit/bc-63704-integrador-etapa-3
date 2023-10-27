@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "63704-etapa-3",
-    "dateExported": "2023-10-25T16:00:56.242Z",
+    "dateExported": "2023-10-27T13:34:58.376Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -108,6 +108,20 @@
                     }
                 ]
             },
+            "tests": []
+        },
+        {
+            "_id": "d0a0ae3b-2a98-48c1-b1df-9aab6a203fe1",
+            "colId": "67bc62e1-4406-4c35-bfdc-c5e4d92ac903",
+            "containerId": "",
+            "name": "Guardar Carrito",
+            "url": "http://localhost:8080/api/carrito",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-10-27T13:34:05.666Z",
+            "modified": "2023-10-27T13:34:27.738Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]

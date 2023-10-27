@@ -5,6 +5,7 @@ import path from 'node:path'
 import routerProductos from './routers/productos.router.js'
 import routerUpload from './routers/upload.router.js'
 import conectarMongo from './config/conectarMongo.js'
+import routerCarrito from './routers/carrito.router.js'
 
 // ! CONFIGURACIONES
 const app = express()
@@ -21,6 +22,7 @@ app.use(express.json()) // Decodificar el body enviado desde un json
 // ! ROUTES
 app.use('/api/productos', routerProductos)
 app.use('/api/upload', routerUpload)
+app.use('/api/carrito', routerCarrito)
 
 
 app.listen(PORT, () => {

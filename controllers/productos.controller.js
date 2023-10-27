@@ -1,4 +1,5 @@
 import models from '../models/productos.model.js'
+import handleError from '../utils/handleError.js'
 
 const obtenerProductos = async (req, res) => {
     let id = req.params.id
@@ -12,8 +13,7 @@ const obtenerProductos = async (req, res) => {
             return res.status(200).json(productos)
         }
     } catch (error) {
-        console.log('No se pudo acceder a los producto/s', error)
-        res.status(500).send('[obtenerProductos]: No se pudo acceder a los productos')
+        handleError(res, '[obtenerProductos]: No se pudo acceder a los producto/s', error)
     }
 }
 
@@ -24,8 +24,7 @@ const guardarProducto = async (req, res) => {
         const productoGuardado = await models.guardarProducto(producto)
         res.status(201).json(productoGuardado)
     } catch (error) {
-        console.log('[guardarProducto]: No se puedo guardar el producto', error)
-        res.status(500).send('[guardarProducto]: No se puedo guardar el producto')
+        handleError(res, '[guardarProducto]: No se puedo guardar el producto', error)
     }
 } 
 

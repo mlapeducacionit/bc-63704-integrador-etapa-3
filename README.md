@@ -26,6 +26,15 @@ npm init -y && npm i express express-validator mongoose multer cors && npm i nod
     Opcional => mongod --dbpath "D:\_courses\63704.bootcamp.fullstack\clase-61\bc63704-integrador-etapa-3\back\data"
 3. Conectarse vía mongo shell al servidor en otra consola => mongosh
 
+## Arrancar el proyecto y empezar a desarrollar
+
+1. Abrir Workspace
+2. Abrir la consola del back
+3. npm i 
+4. Abrir conemu
+5. Levantar la base de datos (mongod)
+6. npm run dev
+
 ## Estamos trabajando con el stack MERM
 
 ![merm](_ref/MERN.png)
