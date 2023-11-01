@@ -44,9 +44,11 @@ npm init -y && npm i express express-validator mongoose multer cors && npm i nod
 
 ## Subiendo el proyecto a la nube
 
-* Front => Netlify 
-* Back => Render => TODO
-* DB => Mongo Atlas => OK
+- [x] Front => Netlify 
+- [x] Back => Render
+- [x] DB => Mongo Atlas
+
+
 
 1. Hacer backup de nuestra base de datos local
 
@@ -66,10 +68,23 @@ mongorestore --uri "mongodb+srv://digitalers.2xyfw8q.mongodb.net/" --username mp
 
 3. Subir a Github nuestro backend
 
-
 4. Loguearse en Render (https://render.com/)
 
+5. Seguir los pasos indicados en la capturas
 
+![paso-1](_ref/render/2023-10-30_19-28-50.jpg)
+![paso-2](_ref/render/2023-10-30_19-29-19.jpg)
+![paso-3](_ref/render/2023-10-30_19-29-55.jpg)
+![paso-4](_ref/render/2023-10-30_19-32-51.jpg)
+![paso-5](_ref/render/2023-10-30_19-32-57.jpg)
+![paso-6](_ref/render/2023-10-30_19-34-31.jpg)
+![paso-7](_ref/render/2023-10-30_19-36-10.jpg)
+![paso-8](_ref/render/2023-10-30_19-36-20.jpg)
+![paso-9](_ref/render/2023-10-30_19-36-55.jpg)
+![paso-10](_ref/render/2023-10-30_19-38-04.jpg)
+![paso-11](_ref/render/2023-10-30_19-38-28.jpg)
+
+6. Subir nuestro front a Netlify
 
 
 
