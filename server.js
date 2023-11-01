@@ -29,6 +29,10 @@ app.use('/api/productos', routerProductos)
 app.use('/api/upload', routerUpload)
 app.use('/api/carrito', routerCarrito)
 
+app.all('*', (req, res) => {
+    res.status(404).send(`La ruta ${req.url} utilizando el ${req.method} no está disponible!`)
+})
+
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`)

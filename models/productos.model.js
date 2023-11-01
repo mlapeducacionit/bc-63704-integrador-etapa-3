@@ -1,16 +1,23 @@
 import mongoose from 'mongoose'
+import handleMongoId from '../utils/handleMongoId.js'
 
 // ! CREAMOS EL ESQUEMA
-const productosSchema = mongoose.Schema({
-    nombre: String,
-    precio: Number,
-    stock: Number,
-    marca: String,
-    categoria: String,
-    detalles: String,
-    foto: String,
-    envio: Boolean
-})
+const productosSchema = mongoose.Schema(
+    {
+        nombre: String,
+        precio: Number,
+        stock: Number,
+        marca: String,
+        categoria: String,
+        detalles: String,
+        foto: String,
+        envio: Boolean
+    },
+    {
+        versionKey: false,
+        timestamps: true, // 2 fields => create_at => update_at
+    }
+)
 
 // ! CREAMOS EL MODELO
 const ProductoModel = mongoose.model('productos', productosSchema)
@@ -24,7 +31,7 @@ const ProductoModel = mongoose.model('productos', productosSchema)
 const leerProductos = async () => {
     try {
         const productos = await ProductoModel.find({})
-        return productos
+        return handleMongoId(productos)
     } catch (error) {
         console.log('[leerProductos]: Algo no salío bien...', error)
     }
@@ -32,8 +39,9 @@ const leerProductos = async () => {
 // ------------------------------------------------- Obtener el producto basdado en el id
 const leerProducto = async (id) => {
     try {
-        const producto = await ProductoModel.findById(id)
-        return producto
+        const producto = await ProductoModel.findById(id) // ProductoModel => Nos devuelven obj de mongo
+        return handleMongoId(producto)
+        //return producto
     } catch (error) {
         console.log('[leerProducto]: Algo no salío bien...', error)
     }
@@ -44,7 +52,7 @@ const guardarProducto = async (productoNuevo) => {
     try {
         const productoCreado = new ProductoModel(productoNuevo)
         await productoCreado.save()
-        return productoCreado
+        return handleMongoId(productoCreado)
     } catch (error) {
         console.log('[guardarProducto]: No se pudo guardar el producto en la DB', error)
     }
@@ -55,8 +63,9 @@ const guardarProducto = async (productoNuevo) => {
 const modificarProducto = async (id, productoAEditar) => {
 
     try {
-        const productoModificado = await ProductoModel.findByIdAndUpdate(id, productoAEditar)
-        return productoModificado
+        // findByIdAndUpdate: Me devuelve la versión anterior del producto (NO la versión actualizada)
+        const productoModificado = await ProductoModel.findByIdAndUpdate(id, productoAEditar, { new: true} )
+        return handleMongoId(productoModificado)
     } catch (error) {
         console.log('[modificarProducto]: No se pudo actualizar el producto', error)
     }
@@ -69,7 +78,7 @@ const eliminarProducto = async (id) => {
 
     try {
         const productoBorrado = await ProductoModel.findByIdAndDelete(id)
-        return productoBorrado
+        return handleMongoId(productoBorrado)
     } catch (error) {
         console.log('[eliminarProducto]: No se pudo eliminar el producto de la DB', error)
     }

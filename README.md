@@ -9,7 +9,7 @@ touch server.js README.md .env .env.example .gitignore && mkdir controllers mode
 npm init -y && npm i express express-validator mongoose multer cors && npm i nodemon dotenv -D
 ```
 
-## Levantar el proyecto en el ambiente local
+## Levantar el proyecto en el ambiente local (front o back)
 
 1. Bajar el zip (GitHub o Drive)
 2. Copian el .env.example
@@ -34,7 +34,44 @@ npm init -y && npm i express express-validator mongoose multer cors && npm i nod
 4. Abrir conemu
 5. Levantar la base de datos (mongod)
 6. npm run dev
+7. Abrir una consola en el front
+8. npm i
+9. npm run dev
 
 ## Estamos trabajando con el stack MERM
 
 ![merm](_ref/MERN.png)
+
+## Subiendo el proyecto a la nube
+
+* Front => Netlify 
+* Back => Render => TODO
+* DB => Mongo Atlas => OK
+
+1. Hacer backup de nuestra base de datos local
+
+> Me posiciono en el directroio donde quiero que se genera la carpeta donde voy a tener los backups de las db de mongo 
+
+```sh
+mongodump --db bc_ecommerce
+```
+
+2. Hacemos el restore (Recuperamos el backup) en la DB remota
+
+```sh
+mongorestore --uri <la-url-que-me-va-a-dar-mongo-atlas> --username <usuario-db> --nsInclude <base-datos>.<collection> <carpeta-donde-están-backups>
+
+mongorestore --uri "mongodb+srv://digitalers.2xyfw8q.mongodb.net/" --username mprincipe --nsInclude bc_ecommerce.* dump
+```
+
+3. Subir a Github nuestro backend
+
+
+4. Loguearse en Render (https://render.com/)
+
+
+
+
+
+
+
